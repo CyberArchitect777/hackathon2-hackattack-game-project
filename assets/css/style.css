@@ -8,6 +8,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* General styling */
 
 /* Background Image*/
@@ -26,6 +30,7 @@ h1 {
     font-weight: 400;
     color: white;
     margin-top: 30px;
+    text-shadow: 2px 2px 5px #FF0099;
 }
 
 /* Logo image */
@@ -37,22 +42,45 @@ h1 {
 /* Menu screen */
 
 button {
-    /* margin: 50px; */
+    border: #ffff;
     font-family: "Playwrite DE Grund";
-    font-weight: 600;
+    font-weight: 800;
+}
+
+button:hover {
+    color: #ffff;
+    background-color: #FF0099;
+    box-shadow: 
+        inset 0 0 15px #FF0099,  /* inner glow on hover */
+        0 0 10px #eeacd3,        /* outer glow on hover */
+        0 0 20px #eeacd3, 
+        0 0 30px #FF0099, 
+        0 0 40px #FF0099;
 }
 
 #menu-screen button {
+    font-size: 20px;
     border-radius: 25px;
     height: 100px;
-    /*width: 200px;*/
-
+   
 }
 
 #game-screen button {
     font-size: 15px;
     border-radius: 25px;
     width: 120px;
+}
+
+#instructions-screen button {
+    font-size: 20px;
+    border-radius: 25px;
+    height: 100px;
+}
+
+#score-screen button {
+    font-size: 20px;
+    border-radius: 25px;
+    height: 100px;
 }
 
 /* Game screen */
@@ -68,8 +96,10 @@ button {
 }
 
 
+
 @media only screen and (min-width: 768px) {
     .hackerbox {
         max-width: 156px;
     }
 }
+
