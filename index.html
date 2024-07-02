@@ -30,25 +30,19 @@
 
     <main>
         <div id="home-screen">
-            <section id="menu-screen" class="row sitepage"> <!-- Add manual flexbox -->
+            <section id="menu-screen" class="row sitepage">
                 <button id="start-button" class="col-10 mx-auto mt-5">Start Game</button>
                 <button id="how-to-play-button" class="col-10 mx-auto mt-5">Instructions</button>
             </section>
 
-            <section id="game-screen" class="hide sitepage">
-                <div class="row" style="border:red solid;">
-                    <button id="score-display" class="col-6" style="border:yellow solid;">Score: 0</button>
-                    <button id="time-display" class="col-6 d-flex justify-content-right"
-                        style="border:yellow solid;">Time: 60</button>
-                </div>
+            <section id="game-screen" class="row hide sitepage">
+                <button id="score-display" class="col-6 mx-auto">Score: 0</button>
+                <button id="time-display" class="col-6 mx-auto">Time: 60</button>
 
                 <div id="boxes"></div>
 
-                <div class="col-12">
-
-                    <button id="start-game-button">Start Game</button>
-                    <button id="end-game-button">End Game</button>
-                </div>
+                <button id="start-game-button" class="col-6 mx-auto">Start Game</button>
+                <button id="end-game-button" class="col-6 mx-auto">End Game</button>
             </section>
 
             <section id="score-screen" class="hide sitepage">
