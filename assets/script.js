@@ -25,7 +25,7 @@ function createBoard() {
     let gameBoard = document.getElementById("boxes")
     let gameCode = "";
 
-    gameCode += `<div class="hide" id="hacker-data">-1</div><div class="row">`;
+    gameCode += `<div class="hide" id="hacker-pos">-1</div><div class="row">`;
 
     for (let x=0; x<16; x++) {
         if (x % 4 == 0) {
@@ -47,10 +47,10 @@ function setUpListeners() {
 
 function checkAnswer(eventAction) {
     let targetBox = (eventAction.target.id).substring(5);
-    if (targetBox == document.getElementById("hacker-data").innerText) {
-        alert("You got me!");
+    if (targetBox == document.getElementById("hacker-pos").innerText) {
+        changeScore(5)
     } else {
-        alert("Missed me!");
+        changeScore(-10);
     }
 }
 
@@ -64,7 +64,7 @@ function placeHacker(hackerPosition) {
 
 function gameRun(passedGameRounds) {
 
-    let currentHackerLocation = document.getElementById("hacker-data");
+    let currentHackerLocation = document.getElementById("hacker-pos");
 
     if (currentHackerLocation.innerText != -1) {
         removeHacker(currentHackerLocation.innerText);
@@ -85,6 +85,19 @@ function gameStart() {
 
     let gameThread = setInterval(gameRun, timeInterval, gameRounds);
 
+}
+
+//const getScore = () => Number((document.getElementById("score-display").substring(6)));
+//const changeScore = scoreDifference => document.getElementById("score-display").innerText = "Score: " + (getScore + Number(scoreDifference)); 
+
+function getScore() {
+    const currentScore = (document.getElementById("score-display").innerText).substring(6);
+    return currentScore;
+}
+
+function changeScore(scoreDifference) {
+    const newScore = "Score: " + (Number(getScore()) + Number(scoreDifference));
+    document.getElementById("score-display").innerText = newScore;
 }
 
 gameStart();
