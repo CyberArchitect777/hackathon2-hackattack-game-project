@@ -80,7 +80,7 @@ function placeHacker(hackerPosition) {
 
 function gameStart() {
     const gameRounds = 60; // Number of iterations the game will go through
-    const timeInterval = 1000; // Number of miliseconds per iteration
+    const timeInterval = 1; // Number of seconds per iteration
 
     createBoard();
     setUpListeners();
@@ -97,12 +97,15 @@ function gameStart() {
         const newHackerLocation = Math.floor(Math.random() * 16);
         placeHacker(newHackerLocation);
         currentHackerLocation.innerText = newHackerLocation.toString();
-        
-    }, timeInterval, gameRounds);
+        changeTimeLeft(-timeInterval);
+
+    }, (timeInterval*1000), gameRounds);
 
 }
 
 const getScore = () => (document.getElementById("score-display").innerText).substring(6);
 const changeScore = scoreDifference => document.getElementById("score-display").innerText = "Score: " + (Number(getScore()) + Number(scoreDifference));
+const getTimeLeft = () => (document.getElementById("time-display").innerText).substring(5);
+const changeTimeLeft = timeDifference => document.getElementById("time-display").innerText = "Time: " + (Number(getTimeLeft()) + Number(timeDifference));
 
 gameStart();
