@@ -86,7 +86,7 @@ function placeHacker(hackerPosition) {
 * The main function that runs the game by calling other functions.
 **/
 function gameStart() {
-    const gameRounds = 105; // Number of iterations the game will go through
+    const gameRounds = 60; // Number of iterations the game will go through
     const timeInterval = 1; // Number of seconds per iteration
 
     setTimeLeft(gameRounds);
@@ -105,7 +105,7 @@ function gameStart() {
         const newHackerLocation = Math.floor(Math.random() * 16);
         placeHacker(newHackerLocation);
         currentHackerLocation.innerText = newHackerLocation.toString();
-        if (getTimeLeft() == 100) {
+        if (getTimeLeft() == 0) {
             clearInterval(gameRun);
             alert("Time is up");
         }
