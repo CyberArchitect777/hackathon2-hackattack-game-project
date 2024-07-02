@@ -41,11 +41,34 @@ This website was created during Hackathon 2 of the "16-Week High-Performance Ful
 
 ## Team
 
+The team worked cooperatively to take the project from design to final implementation and testing.
+
+* Ahmed Alvi - (https://github.com/coder-alvi)
+
+* Sunita Arora - (https://github.com/AroraSunita)
+
+* Barrie Millar - (https://github.com/CyberArchitect777)
+
 ## Future Wishlist
 
 ## Project Deployment
 
 ## Technical Facts
+
+### Technologies used:
+
+* HTML
+* CSS
+* Bootstrap
+* JavaScript
+
+### Tools
+
+* Slack (for communications)
+* Balsamiq, Canva (for wireframing)
+* Google Documents (for project planning)
+* GitHub Projects (for project management)
+* ChatGPT (for code technique advice)
 
 ## Repository and Project Board
 
