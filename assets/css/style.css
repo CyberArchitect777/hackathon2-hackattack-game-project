@@ -37,6 +37,7 @@ h1 {
 }
 
 /* Menu screen */
+
 button{
     /* margin: 50px; */
     font-family: "Playwrite DE Grund";
@@ -46,7 +47,8 @@ button{
 #menu-screen button {
     border-radius: 25px;
     height: 100px;
-    width: 200px;
+    /*width: 200px;*/
+
 }
 
 #game-screen button {
