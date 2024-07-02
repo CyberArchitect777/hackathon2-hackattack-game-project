@@ -46,7 +46,12 @@ function setUpListeners() {
 }
 
 function checkAnswer(eventAction) {
-    console.log(eventAction.target.id);
+    let targetBox = (eventAction.target.id).substring(5);
+    if (targetBox == document.getElementById("hacker-data").innerText) {
+        alert("You got me!");
+    } else {
+        alert("Missed me!");
+    }
 }
 
 function removeHacker(hackerPosition) {
