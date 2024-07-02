@@ -23,34 +23,44 @@
 </head>
 
 <body>
-    <header class="row d-flex align-items-center">
-        <img src="assets/images/logo.png" class="col-3" alt="Logo image" id="logoimage">
-        <h1 class="text-center col-9">Hacker Whacker</h1>
+    <header class="col-12 d-flex align-items-center">
+        <img src="assets/images/logo.png" class="col-2" alt="Logo image" id="logoimage">
+        <h1 class="text-center col-10">Hacker Whacker</h1>
     </header>
-    <main>
-        <div id="col-12 home-screen">
-            <section id="menu-screen" class="d-flex justify-content-center">
+    <main class="container">
+        <!-- <div id="home-screen">
+
+            <section id="menu-screen" class="row d-flex justify-content-center">
                 <button id="start-button">Start Game</button>
                 <button id="how-to-play-button">Instructions</button>
             </section>
-        </div>
 
-        <!--<section id="game-screen">
-                <button id="score-display">Score: 0</button>
-                <button id="time-display">Time: 60</button>
-                <div id="boxes"></div>
+            </div> -->
+
+        <section id="game-screen">
+
+            <div class="row" style="border:red solid ;">
+                <button id="score-display" class="col-6" style="border:yellow solid;">Score: 0</button>
+                <button id="time-display" class="col-6 d-flex justify-content-right" style="border:yellow solid;">Time: 60</button>
+            </div>
+
+            <div id="boxes"></div>
+        
+            <div class="col-12 ">
                 <button id="start-game-button">Start Game</button>
                 <button id="end-game-button">End Game</button>
-            </section>
+            </div>
 
-            <section id="score-screen">
+        </section>
+
+            <!-- <section id="score-screen">
                 <button id="score-screen">Final Score:0</button>
                 <button id="play-again-button">Play Again</button>
             </section>
             <section id="instructions-screen">
                 <button id="main-menu-button">Main Menu</button>
-            </section>-->
-        </div>
+            </section> -->
+        
     </main>
     <script src="assets/script.js"></script>
 </body>
