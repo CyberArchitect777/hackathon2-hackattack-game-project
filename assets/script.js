@@ -62,7 +62,7 @@ function placeHacker(hackerPosition) {
     document.getElementById("image" + hackerPosition).src = "assets/images/hacker_skull.png";
 }
 
-function gameRun(passedGameRounds) {
+/*function gameRun(passedGameRounds) {
 
     let currentHackerLocation = document.getElementById("hacker-pos");
 
@@ -74,16 +74,31 @@ function gameRun(passedGameRounds) {
     placeHacker(newHackerLocation);
     currentHackerLocation.innerText = newHackerLocation.toString();
     
-}
+}*/
+
+
 
 function gameStart() {
-    const gameRounds = 120; // Number of iterations the game will go through
+    const gameRounds = 60; // Number of iterations the game will go through
     const timeInterval = 1000; // Number of miliseconds per iteration
 
     createBoard();
     setUpListeners();
 
-    let gameThread = setInterval(gameRun, timeInterval, gameRounds);
+    //let gameThread = setInterval(gameRun, timeInterval, gameRounds);
+    const gameRun = setInterval(function() {
+    
+        let currentHackerLocation = document.getElementById("hacker-pos");
+    
+        if (currentHackerLocation.innerText != -1) {
+            removeHacker(currentHackerLocation.innerText);
+        }
+    
+        const newHackerLocation = Math.floor(Math.random() * 16);
+        placeHacker(newHackerLocation);
+        currentHackerLocation.innerText = newHackerLocation.toString();
+        
+    }, timeInterval, gameRounds);
 
 }
 
