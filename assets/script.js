@@ -25,8 +25,7 @@ function createBoard() {
     let gameBoard = document.getElementById("boxes")
     let gameCode = "";
 
-    gameCode += `<div class="hide" id="hacker-data">-1</div><div class="row">
-    `;
+    gameCode += `<div class="hide" id="hacker-data">-1</div><div class="row">`;
 
     for (let x=0; x<16; x++) {
         if (x % 4 == 0) {
@@ -40,6 +39,12 @@ function createBoard() {
     gameBoard.innerHTML += gameCode;
 }
 
+function setUpListeners() {
+    for (let x=0; x<16; x++) {
+        let selectedBox = document.getElementById("box" + x);
+        selectedBox.addEventListener("click", checkAnswer);
+    }
+}
 
 function gameStart() {
     const gameRounds = 120; // Number of iterations the game will go through
