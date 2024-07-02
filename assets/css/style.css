@@ -19,10 +19,8 @@ body {
     background-repeat: no-repeat;
   }
 
-/* main {
-    display: flex;
-    justify-content: center;
-} */
+/* Header information */
+
 h1 {
     font-family: "Rubik Glitch";
     font-weight: 400;
@@ -38,7 +36,7 @@ h1 {
 
 /* Menu screen */
 
-button{
+button {
     /* margin: 50px; */
     font-family: "Playwrite DE Grund";
     font-weight: 600;
@@ -63,7 +61,7 @@ button{
     margin-bottom: 5px;
 }
 
-/* JavaScript */
+/* Utility functions */
 
 .hide {
     display: none;
