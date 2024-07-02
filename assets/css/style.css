@@ -1,0 +1,22 @@
+/* Fonts */
+/* H1 font */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+
+/* Button font */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
+
+/* Background Image*/
+body {
+    background-color: green;
+    background-image: url("assets/images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
+h1 {
+    font-family: "Rubik Glitch";
+    font-weight: 400;
+    color: white;
+}
