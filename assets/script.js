@@ -35,7 +35,6 @@ function createBoard() {
     }
 
     gameCode +="</div>";
-    alert(gameCode);
     gameBoard.innerHTML += gameCode;
 }
 
@@ -50,12 +49,36 @@ function checkAnswer(eventAction) {
     console.log(eventAction.target.id);
 }
 
+function removeHacker(hackerPosition) {
+    document.getElementById("image" + hackerPosition).src = "assets/images/desktop.png";
+}
+
+function placeHacker(hackerPosition) {
+    document.getElementById("image" + hackerPosition).src = "assets/images/hacker_skull.png";
+}
+
+function gameRun(passedGameRounds) {
+
+    let currentHackerLocation = document.getElementById("hacker-data");
+
+    if (currentHackerLocation.innerText != -1) {
+        removeHacker(currentHackerLocation.innerText);
+    }
+
+    const newHackerLocation = Math.floor(Math.random() * 16);
+    placeHacker(newHackerLocation);
+    currentHackerLocation.innerText = newHackerLocation.toString();
+    
+}
+
 function gameStart() {
     const gameRounds = 120; // Number of iterations the game will go through
     const timeInterval = 1000; // Number of miliseconds per iteration
 
     createBoard();
     setUpListeners();
+
+    let gameThread = setInterval(gameRun, timeInterval, gameRounds);
 
 }
 
