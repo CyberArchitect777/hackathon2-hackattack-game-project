@@ -27,40 +27,39 @@
         <img src="assets/images/logo.png" class="col-2" alt="Logo image" id="logoimage">
         <h1 class="text-center col-10">Hacker Whacker</h1>
     </header>
+    
     <main class="container">
-        <!-- <div id="home-screen">
-
-            <section id="menu-screen" class="row d-flex justify-content-center">
+        <div id="home-screen">
+            
+            <section id="menu-screen" class="row sitepage"> <!-- Add manual flexbox -->
                 <button id="start-button">Start Game</button>
                 <button id="how-to-play-button">Instructions</button>
             </section>
+            
+            <section id="game-screen" class="hide sitepage">
+                <div class="row" style="border:red solid ;">
+                    <button id="score-display" class="col-6" style="border:yellow solid;">Score: 0</button>
+                    <button id="time-display" class="col-6 d-flex justify-content-right" style="border:yellow solid;">Time: 60</button>
+                </div>
 
-            </div> -->
-
-        <section id="game-screen">
-
-            <div class="row" style="border:red solid ;">
-                <button id="score-display" class="col-6" style="border:yellow solid;">Score: 0</button>
-                <button id="time-display" class="col-6 d-flex justify-content-right" style="border:yellow solid;">Time: 60</button>
-            </div>
-
-            <div id="boxes"></div>
+                <div id="boxes"></div>
         
-            <div class="col-12 ">
-                <button id="start-game-button">Start Game</button>
-                <button id="end-game-button">End Game</button>
-            </div>
+                <div class="col-12 ">
 
-        </section>
+                    <button id="start-game-button">Start Game</button>
+                    <button id="end-game-button">End Game</button>
+                </div>
+          </section>
 
-            <!-- <section id="score-screen">
-                <button id="score-screen">Final Score:0</button>
-                <button id="play-again-button">Play Again</button>
-            </section>
-            <section id="instructions-screen">
-                <button id="main-menu-button">Main Menu</button>
-            </section> -->
-        
+          <section id="score-screen" class="hide sitepage">
+              <button id="score-screen">Final Score:0</button>
+              <button id="play-again-button">Play Again</button>
+          </section>
+            
+          <section id="instructions-screen" class="hide sitepage">
+              <button id="main-menu-button">Main Menu</button>
+          </section>
+        </div>
     </main>
     <script src="assets/script.js"></script>
 </body>

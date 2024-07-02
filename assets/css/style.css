@@ -47,12 +47,24 @@ button{
     border-radius: 25px;
     height: 100px;
     width: 200px;
-    }
-
+}
 
 #game-screen button {
     font-size: 15px;
     border-radius: 25px;
     width: 120px;
+}
 
+/* Game screen */
+
+.hackerbox {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+/* JavaScript */
+
+.hide {
+    display: none;
 }
