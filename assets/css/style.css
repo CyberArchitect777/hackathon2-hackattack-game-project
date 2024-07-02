@@ -17,12 +17,17 @@ body {
     background-image: url("../images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
-    }
+  }
 
+/* main {
+    display: flex;
+    justify-content: center;
+} */
 h1 {
     font-family: "Rubik Glitch";
     font-weight: 400;
     color: white;
+    margin-top: 30px;
 }
 
 /* Logo image */
@@ -32,10 +37,22 @@ h1 {
 }
 
 /* Menu screen */
+button{
+    /* margin: 50px; */
+    font-family: "Playwrite DE Grund";
+    font-weight: 600;
+}
 
 #menu-screen button {
-    border-radius: 20px;
-    width: 150px;
+    border-radius: 25px;
+    height: 100px;
+    width: 200px;
+}
+
+#game-screen button {
+    font-size: 15px;
+    border-radius: 25px;
+    width: 120px;
 }
 
 /* Game screen */
