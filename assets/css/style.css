@@ -37,3 +37,17 @@ h1 {
     border-radius: 20px;
     width: 150px;
 }
+
+/* Game screen */
+
+.hackerbox {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+/* JavaScript */
+
+.hide {
+    display: none;
+}
