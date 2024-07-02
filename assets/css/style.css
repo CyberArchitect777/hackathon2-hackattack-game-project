@@ -1,13 +1,17 @@
 /* Fonts */
+
 /* H1 font */
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
 
 /* Button font */
+
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
 
+/* General styling */
 
 /* Background Image*/
+
 body {
     background-color: green;
     background-image: url("../images/background.png");
@@ -19,4 +23,17 @@ h1 {
     font-family: "Rubik Glitch";
     font-weight: 400;
     color: white;
+}
+
+/* Logo image */
+
+#logoimage {
+    width: 100px;
+}
+
+/* Menu screen */
+
+#menu-screen button {
+    border-radius: 20px;
+    width: 150px;
 }
