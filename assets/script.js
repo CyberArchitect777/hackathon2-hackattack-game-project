@@ -87,17 +87,7 @@ function gameStart() {
 
 }
 
-//const getScore = () => Number((document.getElementById("score-display").substring(6)));
-//const changeScore = scoreDifference => document.getElementById("score-display").innerText = "Score: " + (getScore + Number(scoreDifference)); 
-
-function getScore() {
-    const currentScore = (document.getElementById("score-display").innerText).substring(6);
-    return currentScore;
-}
-
-function changeScore(scoreDifference) {
-    const newScore = "Score: " + (Number(getScore()) + Number(scoreDifference));
-    document.getElementById("score-display").innerText = newScore;
-}
+const getScore = () => (document.getElementById("score-display").innerText).substring(6);
+const changeScore = scoreDifference => document.getElementById("score-display").innerText = "Score: " + (Number(getScore()) + Number(scoreDifference));
 
 gameStart();
