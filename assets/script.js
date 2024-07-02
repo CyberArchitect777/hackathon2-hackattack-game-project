@@ -31,7 +31,7 @@ function createBoard() {
         if (x % 4 == 0) {
             gameCode +=`</div><div class="row d-flex justify-content-center">`;
         }
-        gameCode +=`<div id="box${x}" class="hackerbox col-3"><img class="img-fluid" alt="Desktop Tile Image" src="assets/images/desktop.png"></div>`;
+        gameCode +=`<div id="box${x}" class="hackerbox col-3"><img id="image${x}" class="img-fluid" alt="Desktop Tile Image" src="assets/images/desktop.png"></div>`;
     }
 
     gameCode +="</div>";
@@ -41,9 +41,13 @@ function createBoard() {
 
 function setUpListeners() {
     for (let x=0; x<16; x++) {
-        let selectedBox = document.getElementById("box" + x);
-        selectedBox.addEventListener("click", checkAnswer);
+        let selectedImage = document.getElementById("image" + x);
+        selectedImage.addEventListener("click", checkAnswer);
     }
+}
+
+function checkAnswer(eventAction) {
+    console.log(eventAction.target.id);
 }
 
 function gameStart() {
@@ -51,6 +55,7 @@ function gameStart() {
     const timeInterval = 1000; // Number of miliseconds per iteration
 
     createBoard();
+    setUpListeners();
 
 }
 
