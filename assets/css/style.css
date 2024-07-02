@@ -66,3 +66,10 @@ button {
 .hide {
     display: none;
 }
+
+
+@media only screen and (min-width: 768px) {
+    .hackerbox {
+        max-width: 156px;
+    }
+}
