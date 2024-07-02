@@ -1,4 +1,6 @@
 
+// Button event listener set up area
+
 let startGameButton = document.getElementById("start-button");
 startGameButton.addEventListener("click", function () { 
     displayWindow("game-screen")
@@ -9,6 +11,9 @@ instructionsButton.addEventListener("click", function () {
     displayWindow("instructions-screen")
 });
 
+/**
+* Displays the required div frame after being activated by an event or call.
+**/
 function displayWindow(windowName) {
     const allSitePages = document.querySelectorAll(".sitepage");
 
@@ -21,6 +26,9 @@ function displayWindow(windowName) {
     }
 }
 
+/**
+* Creates the HTML code and embeds it in the page to display the initial play board
+**/
 function createBoard() {
     let gameBoard = document.getElementById("boxes")
     let gameCode = "";
@@ -38,6 +46,9 @@ function createBoard() {
     gameBoard.innerHTML += gameCode;
 }
 
+/**
+* Sets up event listeners for all created boxes on the play board
+**/
 function setUpListeners() {
     for (let x=0; x<16; x++) {
         let selectedImage = document.getElementById("image" + x);
@@ -45,6 +56,9 @@ function setUpListeners() {
     }
 }
 
+/**
+* Checks the location of the user action against the actual location of the hacker and adjusts the score apropriately
+**/
 function checkAnswer(eventAction) {
     let targetBox = (eventAction.target.id).substring(5);
     if (targetBox == document.getElementById("hacker-pos").innerText) {
@@ -54,30 +68,23 @@ function checkAnswer(eventAction) {
     }
 }
 
+/**
+* Removes the hacker image from a given box
+**/
 function removeHacker(hackerPosition) {
     document.getElementById("image" + hackerPosition).src = "assets/images/desktop.png";
 }
 
+/**
+* Places the hacker image on a given box
+**/
 function placeHacker(hackerPosition) {
     document.getElementById("image" + hackerPosition).src = "assets/images/hacker_skull.png";
 }
 
-/*function gameRun(passedGameRounds) {
-
-    let currentHackerLocation = document.getElementById("hacker-pos");
-
-    if (currentHackerLocation.innerText != -1) {
-        removeHacker(currentHackerLocation.innerText);
-    }
-
-    const newHackerLocation = Math.floor(Math.random() * 16);
-    placeHacker(newHackerLocation);
-    currentHackerLocation.innerText = newHackerLocation.toString();
-    
-}*/
-
-
-
+/**
+* The main function that runs the game by calling other functions.
+**/
 function gameStart() {
     const gameRounds = 105; // Number of iterations the game will go through
     const timeInterval = 1; // Number of seconds per iteration
@@ -86,7 +93,7 @@ function gameStart() {
     createBoard();
     setUpListeners();
 
-    //let gameThread = setInterval(gameRun, timeInterval, gameRounds);
+    // Starts the new game thread which runs every timeInterval for gameRounds
     const gameRun = setInterval(function() {
     
         let currentHackerLocation = document.getElementById("hacker-pos");
@@ -109,10 +116,30 @@ function gameStart() {
 
 }
 
+/**
+* Gets the score from the display on the HTML code
+**/
 const getScore = () => (document.getElementById("score-display").innerText).substring(6);
+
+/**
+* Updates the change on the HTML page using the difference supplied
+**/
 const changeScore = scoreDifference => document.getElementById("score-display").innerText = "Score: " + (Number(getScore()) + Number(scoreDifference));
+
+/**
+* Gets the time left from the display on the HTML code
+**/
 const getTimeLeft = () => (document.getElementById("time-display").innerText).substring(5);
+
+/**
+* Updates the time on the HTML page using the difference supplied
+**/
 const changeTimeLeft = timeDifference => document.getElementById("time-display").innerText = "Time: " + (Number(getTimeLeft()) + Number(timeDifference));
+
+/**
+* Sets the time left with an absolute value
+**/
 const setTimeLeft = absoluteTimeLeft => document.getElementById("time-display").innerText = "Time: " + absoluteTimeLeft;
 
+// Starts the main game function
 gameStart();
