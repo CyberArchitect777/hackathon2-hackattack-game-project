@@ -1,7 +1,12 @@
 
 let startGameButton = document.getElementById("start-button");
 startGameButton.addEventListener("click", function () { 
-    displayWindow("game-screen") 
+    displayWindow("game-screen")
+});
+
+let instructionsButton = document.getElementById("how-to-play-button");
+instructionsButton.addEventListener("click", function () { 
+    displayWindow("instructions-screen")
 });
 
 function displayWindow(windowName) {
@@ -15,4 +20,3 @@ function displayWindow(windowName) {
         }
     }
 }
-
