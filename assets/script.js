@@ -21,6 +21,13 @@ gameEndButton.addEventListener("click", function () {
     displayWindow("score-screen");
 });
 
+const mainMenuButton = document.getElementById("main-menu-button");
+mainMenuButton.addEventListener("click", function () {
+    displayWindow("menu-screen");
+});
+
+
+
 /**
  * Displays the required div frame after being activated by an event or call.
  **/
