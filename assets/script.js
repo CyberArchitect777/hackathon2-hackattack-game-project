@@ -6,7 +6,7 @@
  */
 const hackerGameData = {
     hackerLocation: -1,
-    gameRounds: 30,
+    gameRounds: 10,
     timeInterval: 1,
     currentScore: 0,
     highScore: 0,
@@ -221,16 +221,17 @@ function gameStart() {
             clearInterval(hackerGameData.gameRun);
             updateFinalScore(hackerGameData.currentScore);
             disableStartButton(false);
+            hackerGameData.clickFlag = true;
+            document.getElementById("start-game-button").innerText = "Start Game";
             displayWindow("score-screen");
         } else {
             const newHackerLocation = Math.floor(Math.random() * 16);
             placeHacker(newHackerLocation);
             hackerGameData.hackerLocation = newHackerLocation;
             updateTimeLeft(hackerGameData.currentTime - hackerGameData.timeInterval);
+            hackerGameData.clickFlag = false;
         }
-        hackerGameData.clickFlag = false;
     }, (hackerGameData.timeInterval * 1000), hackerGameData.gameRounds);
-
 }
 
 /**
