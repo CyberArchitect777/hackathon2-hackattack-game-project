@@ -173,9 +173,42 @@ ol {
 }
 
 @media only screen and (min-width: 768px) {
+    
+    #logoimage {
+        width: 125px;
+    }
+    
     .h1 {
         font-size: 60px;
     }
+
+    .hackerbox {
+        max-width: 156px;
+    }
+
+    ol {
+        font-size: 20px;
+        padding-bottom: 40px;
+        margin-bottom: 50px;
+    }
+
+    .list-group-item {
+        margin-top: 30px;
+    }
+
+    #instructions-screen button {
+        height: 100px;
+    }
+
+    #final-score {
+        padding: 30px 20px 40px 20px;
+        margin-bottom: 30px;
+    }
+
+    #play-again-button {
+        margin-bottom: 30px;
+    }
+
 }
 
 @media only screen and (min-width: 992px) {
@@ -187,11 +220,5 @@ ol {
 @media only screen and (min-width: 1200px) {
     .h1 {
         font-size: 100px;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .hackerbox {
-        max-width: 156px;
     }
 }
