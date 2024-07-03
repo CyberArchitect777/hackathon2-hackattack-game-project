@@ -112,30 +112,32 @@ button:hover {
         0 0 20px #FF0099;
 }
 
+/* Instructions screen */
+
 #instructions-screen button {
     font-size: 20px;
     border-radius: 25px;
-    height: 100px;
+    height: 50px;
 }
 
 ol {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 800;
     text-align: center;
-    margin-top: 80px;
     background-color: black;
     opacity: 0.8;
     border: #f9fd05 solid 2px;
-    padding: 60px 20px 80px 20px;
-
+    margin-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
 }
 
 .list-group-item {
     color: #ffff;
     border: none;
     background: none;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .list-group {

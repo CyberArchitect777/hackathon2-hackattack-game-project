@@ -72,6 +72,7 @@ function setUpButtonEventListeners() {
     playAgainButton.addEventListener("click", function () {
         resetGame();
         displayWindow("game-screen");
+        gameStart();
     });
 
     const exitMenuButton = document.getElementById("exit-main");
@@ -85,7 +86,6 @@ function resetGame() {
     hackerGameData.setUpObject(); // Reset the hacker data object to starting values
     updateStartingTime();
     updateGameScore(0);
-    gameStart();
 }
 
 /**
