@@ -117,7 +117,7 @@ function createBoard() {
         if (x % 4 == 0) {
             gameCode += `</div><div class="row d-flex justify-content-center">`;
         }
-        gameCode += `<div id="box${x}" class="hackerbox col-3"><img id="image${x}" class="img-fluid" alt="Desktop Tile Image" src="assets/images/desktop.png"></div>`;
+        gameCode += `<div id="box${x}" class="hackerbox col-3"><img id="image${x}" class="img-fluid" alt="Gameplay desktop tile image" src="assets/images/desktop.png"></div>`;
     }
 
     gameCode += "</div>";
@@ -146,8 +146,10 @@ function checkAnswer(eventAction) {
             updateGameScore(hackerGameData.currentScore + 5);
             hackerGameData.clickFlag = true;
             document.getElementById(eventAction.target.id).src = "assets/images/hacker_skullgreen.png";
+            document.getElementById(eventAction.target.id).alt = "Gameplay clicked hacker tile image";
             setTimeout(() => {
                 document.getElementById(eventAction.target.id).src = "assets/images/desktop.png";
+                document.getElementById(eventAction.target.id).alt = "Gameplay desktop tile image";
             }, 200);
         } else {
             updateGameScore(hackerGameData.currentScore - 10);
@@ -165,6 +167,7 @@ function checkAnswer(eventAction) {
  **/
 function removeHacker(hackerPosition) {
     document.getElementById("image" + hackerPosition).src = "assets/images/desktop.png";
+    document.getElementById("image" + hackerPosition).alt = "Gameplay desktop tile image";
 }
 
 /**
@@ -172,6 +175,7 @@ function removeHacker(hackerPosition) {
  **/
 function placeHacker(hackerPosition) {
     document.getElementById("image" + hackerPosition).src = "assets/images/hacker_skull.png";
+    document.getElementById("image" + hackerPosition).alt = "Gameplay unclicked hacker tile image";
 }
 
 /**
