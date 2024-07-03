@@ -5,7 +5,7 @@
  */
 const hackerGameData = {
     hackerLocation: -1,
-    gameRounds: 10,
+    gameRounds: 30,
     timeInterval: 1,
     currentScore: 0,
     highScore: 0,
