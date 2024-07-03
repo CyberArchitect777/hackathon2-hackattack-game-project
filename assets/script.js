@@ -1,4 +1,3 @@
-
 // Minimum global variables implemented in place of using HTML hidden elements to hold values
 
 /**
@@ -11,7 +10,7 @@ const hackerGameData = {
     currentScore: 0,
     highScore: 0,
     exitFlag: false,
-    setUpObject: function() {
+    setUpObject: function () {
         this.hackerLocation = -1;
         this.currentScore = 0;
         this.exitFlag = false;
@@ -19,64 +18,67 @@ const hackerGameData = {
     }
 };
 
-// Button event listener set up area
+function setUpButtonEventListeners() {
+    
+    // Button event listener set up area
 
-// All screens
+    // All screens
 
-const logoText = document.querySelector("header a");
-logoText.addEventListener("click", function () {
-    resetGame();
-    displayWindow("menu-screen");
-});
+    const logoText = document.querySelector("header a");
+    logoText.addEventListener("click", function () {
+        resetGame();
+        displayWindow("menu-screen");
+    });
 
-// Main menu buttons
+    // Main menu buttons
 
-const menuStartGameButton = document.getElementById("menu-start-button");
-menuStartGameButton.addEventListener("click", function () {
-    displayWindow("game-screen");
-});
+    const menuStartGameButton = document.getElementById("menu-start-button");
+    menuStartGameButton.addEventListener("click", function () {
+        displayWindow("game-screen");
+    });
 
-const instructionsButton = document.getElementById("how-to-play-button");
-instructionsButton.addEventListener("click", function () {
-    displayWindow("instructions-screen");
-});
+    const instructionsButton = document.getElementById("how-to-play-button");
+    instructionsButton.addEventListener("click", function () {
+        displayWindow("instructions-screen");
+    });
 
-// Game screen buttons
+    // Game screen buttons
 
-const gameStartButton = document.getElementById("start-game-button");
-gameStartButton.addEventListener("click", function () {
-    gameStart();
-});
+    const gameStartButton = document.getElementById("start-game-button");
+    gameStartButton.addEventListener("click", function () {
+        gameStart();
+    });
 
-const gameEndButton = document.getElementById("end-game-button");
-gameEndButton.addEventListener("click", function () {
-    if (hackerGameData.hackerLocation != -1) {
-        hackerGameData.exitFlag = true;
-    }
-    updateFinalScore();
-    displayWindow("score-screen");
-});
+    const gameEndButton = document.getElementById("end-game-button");
+    gameEndButton.addEventListener("click", function () {
+        if (hackerGameData.hackerLocation != -1) {
+            hackerGameData.exitFlag = true;
+        }
+        updateFinalScore();
+        displayWindow("score-screen");
+    });
 
-// Instructions screen buttons
+    // Instructions screen buttons
 
-const mainMenuButton = document.getElementById("main-menu-button");
-mainMenuButton.addEventListener("click", function () {
-    displayWindow("menu-screen");
-});
+    const mainMenuButton = document.getElementById("main-menu-button");
+    mainMenuButton.addEventListener("click", function () {
+        displayWindow("menu-screen");
+    });
 
-// Final score screen buttons
+    // Final score screen buttons
 
-const playAgainButton = document.getElementById("play-again-button");
-playAgainButton.addEventListener("click", function () {
-    resetGame();
-    displayWindow("game-screen");
-});
+    const playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.addEventListener("click", function () {
+        resetGame();
+        displayWindow("game-screen");
+    });
 
-const exitMenuButton = document.getElementById("exit-main");
-exitMenuButton.addEventListener("click", function () {
-    resetGame();
-    displayWindow("menu-screen");
-});
+    const exitMenuButton = document.getElementById("exit-main");
+    exitMenuButton.addEventListener("click", function () {
+        resetGame();
+        displayWindow("menu-screen");
+    });
+}
 
 function resetGame() {
     hackerGameData.setUpObject(); // Reset the hacker data object to starting values
@@ -162,7 +164,7 @@ function placeHacker(hackerPosition) {
  * The main function that runs the game by calling other functions.
  **/
 function gameStart() {
-    
+
     disableStartButton(true);
     updateTimeLeft(hackerGameData.currentTime);
 
@@ -200,7 +202,7 @@ function setUpInitialGame() {
  * Updates the score locally and on the HTML page
  **/
 const updateGameScore = newScore => {
-    hackerGameData.currentScore = Number(newScore); 
+    hackerGameData.currentScore = Number(newScore);
     document.getElementById("score-display").innerText = "Score: " + String(newScore);
 }
 
@@ -229,7 +231,7 @@ const updateStartingTime = () => {
 /**
  * Enables or disables the start game button on the game screen. True enables it, false disables it.
  */
-const disableStartButton = buttonState => gameStartButton.disabled = buttonState;
+const disableStartButton = buttonState => (document.getElementById("start-game-button")).disabled = buttonState;
 
+setUpButtonEventListeners();
 setUpInitialGame();
-
