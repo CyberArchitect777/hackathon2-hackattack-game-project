@@ -1,3 +1,4 @@
+
 // Minimum global variables implemented in place of using HTML hidden elements to hold values
 
 /**
@@ -10,7 +11,7 @@ const hackerGameData = {
     currentScore: 0,
     highScore: 0,
     exitFlag: false,
-    clickFlag: false,
+    clickFlag: true,
     setUpObject: function () {
         this.hackerLocation = -1;
         this.currentScore = 0;
@@ -182,6 +183,7 @@ function gameStart() {
 
     disableStartButton(true);
     updateTimeLeft(hackerGameData.currentTime);
+    hackerGameData.clickFlag = true;
 
     // Starts the new game thread which runs every hackerGameData.timeInterval for hackerGameData.gameRounds
     const gameRun = setInterval(function () {
