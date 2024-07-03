@@ -10,9 +10,11 @@ const hackerGameData = {
     timeInterval: 1,
     currentScore: 0,
     highScore: 0,
+    exitFlag: false,
     setUpObject: function() {
         this.hackerLocation = -1;
         this.currentScore = 0;
+        this.exitFlag = false;
         hackerGameData.currentTime = (hackerGameData.gameRounds / hackerGameData.timeInterval);
     }
 };
@@ -40,7 +42,11 @@ gameStartButton.addEventListener("click", function () {
 
 const gameEndButton = document.getElementById("end-game-button");
 gameEndButton.addEventListener("click", function () {
-    updateFinalScore();
+    if (hackerGameData.hackerLocation != -1) {
+        hackerGameData.exitFlag = true;
+    } else {
+        updateFinalScore();
+    }
     displayWindow("score-screen");
 });
 
@@ -140,6 +146,9 @@ function placeHacker(hackerPosition) {
  **/
 function gameStart() {
     
+    alert(gameStartButton.disabled);
+    disableStartButton(true);
+    alert(gameStartButton.disabled);
     updateTimeLeft(hackerGameData.currentTime);
     setUpListeners();
 
@@ -150,9 +159,10 @@ function gameStart() {
             removeHacker(hackerGameData.hackerLocation);
         }
 
-        if (hackerGameData.currentTime == 0) {
+        if ((hackerGameData.currentTime == 0) || hackerGameData.exitFlag == true) {
             clearInterval(gameRun);
             updateFinalScore(hackerGameData.currentScore);
+            disableStartButton(false);
             displayWindow("score-screen");
         } else {
             const newHackerLocation = Math.floor(Math.random() * 16);
@@ -201,6 +211,11 @@ const updateStartingTime = () => {
     hackerGameData.setUpObject();
     document.getElementById("time-display").innerText = "Time: " + hackerGameData.currentTime;
 }
+
+/**
+ * Enables or disables the start game button on the game screen. True enables it, false disables it.
+ */
+const disableStartButton = buttonState => gameStartButton.disabled = buttonState;
 
 setUpInitialGame();
 
