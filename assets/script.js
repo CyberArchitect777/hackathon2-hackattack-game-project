@@ -9,10 +9,13 @@ const hackerGameData = {
     gameRounds: 10,
     timeInterval: 1,
     currentScore: 0,
-    highScore: 0
+    highScore: 0,
+    setUpObject: function() {
+        this.hackerLocation = -1;
+        this.currentScore = 0;
+        hackerGameData.currentTime = (hackerGameData.gameRounds / hackerGameData.timeInterval);
+    }
 };
-
-hackerGameData.currentTime = (hackerGameData.gameRounds / hackerGameData.timeInterval);
 
 // Button event listener set up area
 
@@ -49,8 +52,15 @@ mainMenuButton.addEventListener("click", function () {
 
 const playAgainButton = document.getElementById("play-again-button");
 playAgainButton.addEventListener("click", function () {
+    resetGame();
     displayWindow("game-screen");
 });
+
+function resetGame() {
+    hackerGameData.setUpObject(); // Reset the hacker data object to starting values
+    updateStartingTime();
+    updateGameScore(0);
+}
 
 /**
  * Displays the required div frame after being activated by an event or call.
@@ -138,17 +148,26 @@ function gameStart() {
             removeHacker(hackerGameData.hackerLocation);
         }
 
-        const newHackerLocation = Math.floor(Math.random() * 16);
-        placeHacker(newHackerLocation);
-        hackerGameData.hackerLocation = newHackerLocation;
         if (hackerGameData.currentTime == 0) {
             clearInterval(gameRun);
             updateFinalScore(hackerGameData.currentScore);
             displayWindow("score-screen");
+        } else {
+            const newHackerLocation = Math.floor(Math.random() * 16);
+            placeHacker(newHackerLocation);
+            hackerGameData.hackerLocation = newHackerLocation;
+            updateTimeLeft(hackerGameData.currentTime - hackerGameData.timeInterval);
         }
-        updateTimeLeft(hackerGameData.currentTime - hackerGameData.timeInterval);
     }, (hackerGameData.timeInterval * 1000), hackerGameData.gameRounds);
 
+}
+
+/**
+ * Creates the game board and updates the starting time
+ */
+function setUpInitialGame() {
+    createBoard();
+    updateStartingTime();
 }
 
 /**
@@ -172,6 +191,14 @@ const updateTimeLeft = newTime => {
  */
 const updateFinalScore = finalScore => document.getElementById("final-score").innerText = "Final Score: " + finalScore;
 
-// Creates the game board
+/**
+ * 
+ * Sets a starting time value
+ */
+const updateStartingTime = () => {
+    hackerGameData.setUpObject();
+    document.getElementById("time-display").innerText = "Time: " + hackerGameData.currentTime;
+}
 
-createBoard();
+setUpInitialGame();
+
