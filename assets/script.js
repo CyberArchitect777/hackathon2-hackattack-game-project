@@ -21,7 +21,7 @@ const hackerGameData = {
 };
 
 function setUpButtonEventListeners() {
-    
+
     // Button event listener set up area
 
     // All screens
@@ -150,14 +150,14 @@ function checkAnswer(eventAction) {
             setTimeout(() => {
                 document.getElementById(eventAction.target.id).src = "assets/images/desktop.png";
                 //document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
-            },200);        
+            }, 200);
         } else {
             updateGameScore(hackerGameData.currentScore - 10);
             hackerGameData.clickFlag = true;
             document.getElementById(eventAction.target.id).style.backgroundColor = "red";
             setTimeout(() => {
                 document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
-            },200);
+            }, 200);
         }
     }
 }
