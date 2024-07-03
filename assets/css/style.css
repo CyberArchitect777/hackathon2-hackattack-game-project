@@ -13,13 +13,13 @@
 }
 
 /* General styling */
-button {
+button, .display-style {
     border: #ffff;
     font-family: "Playwrite DE Grund";
     font-weight: 800;
 }
 
-button:hover {
+button:hover, .display-style:hover {
     color: black;
     background-color: #7bff00f5;
     box-shadow:
@@ -126,7 +126,7 @@ ol {
     margin-bottom: 5px;
 }
 
-#game-screen button {
+#game-screen button, #game-screen .display-style {
     font-size: 15px;
     font-weight: bolder;
     border-radius: 25px;
