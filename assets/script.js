@@ -143,6 +143,7 @@ function gameStart() {
         hackerGameData.hackerLocation = newHackerLocation;
         if (hackerGameData.currentTime == 0) {
             clearInterval(gameRun);
+            updateFinalScore(hackerGameData.currentScore);
             displayWindow("score-screen");
         }
         updateTimeLeft(hackerGameData.currentTime - hackerGameData.timeInterval);
@@ -165,6 +166,11 @@ const updateTimeLeft = newTime => {
     hackerGameData.currentTime = Number(newTime);
     document.getElementById("time-display").innerText = "Time: " + newTime;
 }
+
+/**
+ * Updates the final score found on the score screen
+ */
+const updateFinalScore = finalScore => document.getElementById("final-score").innerText = "Final Score: " + finalScore;
 
 // Creates the game board
 
