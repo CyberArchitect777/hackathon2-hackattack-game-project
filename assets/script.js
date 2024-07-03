@@ -118,6 +118,8 @@ function createBoard() {
 
     gameCode += "</div>";
     gameBoard.innerHTML += gameCode;
+
+    setUpListeners();
 }
 
 /**
@@ -163,7 +165,6 @@ function gameStart() {
     
     disableStartButton(true);
     updateTimeLeft(hackerGameData.currentTime);
-    setUpListeners();
 
     // Starts the new game thread which runs every hackerGameData.timeInterval for hackerGameData.gameRounds
     const gameRun = setInterval(function () {
