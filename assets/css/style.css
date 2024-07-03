@@ -93,8 +93,7 @@ button:hover {
     color: black;
     background-color: #7bff00f5;
     box-shadow: none;
-    cursor: none;
-   }
+}
 
 #start-game-button, #end-game-button, #main-menu-button{
     background-color: #f9fd05;
@@ -131,17 +130,10 @@ ol {
     margin-bottom: 5rem;
     color: #ffff;
     font-size: 50px;
-    border: none;
-    background: none;
-    cursor: none;
-    outline: none;
-}
-
-#final-score:hover {
-    color: #ffffff;
-    cursor: none;
-    box-shadow: none;
-}
+    background: black;
+    opacity: 0.8;
+    border: #f9fd05 solid 2px;
+    }
 
 /* Game screen */
 
