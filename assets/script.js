@@ -1,6 +1,8 @@
 
 // Button event listener set up area
 
+// Main menu buttons
+
 const menuStartGameButton = document.getElementById("menu-start-button");
 menuStartGameButton.addEventListener("click", function () {
     displayWindow("game-screen");
@@ -10,6 +12,8 @@ const instructionsButton = document.getElementById("how-to-play-button");
 instructionsButton.addEventListener("click", function () {
     displayWindow("instructions-screen");
 });
+
+// Game screen buttons
 
 const gameStartButton = document.getElementById("start-game-button");
 gameStartButton.addEventListener("click", function () {
@@ -21,11 +25,12 @@ gameEndButton.addEventListener("click", function () {
     displayWindow("score-screen");
 });
 
+// Instructions screen buttons
+
 const mainMenuButton = document.getElementById("main-menu-button");
 mainMenuButton.addEventListener("click", function () {
     displayWindow("menu-screen");
 });
-
 
 
 /**
