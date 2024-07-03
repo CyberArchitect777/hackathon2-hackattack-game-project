@@ -40,6 +40,7 @@ gameStartButton.addEventListener("click", function () {
 
 const gameEndButton = document.getElementById("end-game-button");
 gameEndButton.addEventListener("click", function () {
+    updateFinalScore();
     displayWindow("score-screen");
 });
 
@@ -60,6 +61,7 @@ function resetGame() {
     hackerGameData.setUpObject(); // Reset the hacker data object to starting values
     updateStartingTime();
     updateGameScore(0);
+    gameStart();
 }
 
 /**
