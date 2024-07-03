@@ -1,6 +1,6 @@
 // Button event listener set up area
 
-let startGameButton = document.getElementById("start-button");
+let startGameButton = document.getElementById("menu-start-button");
 startGameButton.addEventListener("click", function () {
     displayWindow("game-screen")
 });
