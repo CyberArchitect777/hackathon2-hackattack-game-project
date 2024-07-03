@@ -28,7 +28,7 @@ body {
 
 .h1 {
     font-family: "Rubik Glitch";
-    font-size: 80px;
+    font-size: 30px;
     font-weight: 400;
     color: white;
     margin-top: 30px;
@@ -39,7 +39,7 @@ body {
 /* Logo image */
 
 #logoimage {
-    width: 100px;
+    width: 125px;
 }
 
 /* Menu screen */
@@ -164,6 +164,30 @@ ol {
 
 .hide {
     display: none;
+}
+
+@media only screen and (min-width: 480px) {
+    .h1 {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .h1 {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .h1 {
+        font-size: 80px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .h1 {
+        font-size: 100px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
