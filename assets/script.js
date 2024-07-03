@@ -1,13 +1,24 @@
+
 // Button event listener set up area
 
-let menuStartGameButton = document.getElementById("menu-start-button");
+const menuStartGameButton = document.getElementById("menu-start-button");
 menuStartGameButton.addEventListener("click", function () {
-    displayWindow("game-screen")
+    displayWindow("game-screen");
 });
 
-let instructionsButton = document.getElementById("how-to-play-button");
+const instructionsButton = document.getElementById("how-to-play-button");
 instructionsButton.addEventListener("click", function () {
-    displayWindow("instructions-screen")
+    displayWindow("instructions-screen");
+});
+
+const gameStartButton = document.getElementById("start-game-button");
+gameStartButton.addEventListener("click", function () {
+    gameStart();
+});
+
+const gameEndButton = document.getElementById("end-game-button");
+gameEndButton.addEventListener("click", function () {
+    displayWindow("score-screen");
 });
 
 /**
@@ -89,7 +100,6 @@ function gameStart() {
     const timeInterval = 1; // Number of seconds per iteration
 
     setTimeLeft(gameRounds);
-    createBoard();
     setUpListeners();
 
     // Starts the new game thread which runs every timeInterval for gameRounds
@@ -140,5 +150,6 @@ const changeTimeLeft = timeDifference => document.getElementById("time-display")
  **/
 const setTimeLeft = absoluteTimeLeft => document.getElementById("time-display").innerText = "Time: " + absoluteTimeLeft;
 
-// Starts the main game function
-gameStart();
+// Creates the game board
+
+createBoard();
