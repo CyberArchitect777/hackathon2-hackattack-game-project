@@ -146,10 +146,8 @@ function checkAnswer(eventAction) {
             updateGameScore(hackerGameData.currentScore + 5);
             hackerGameData.clickFlag = true;
             document.getElementById(eventAction.target.id).src = "assets/images/hacker_skullgreen.png";
-            //document.getElementById(eventAction.target.id).style.backgroundColor = "blue";
             setTimeout(() => {
                 document.getElementById(eventAction.target.id).src = "assets/images/desktop.png";
-                //document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
             }, 200);
         } else {
             updateGameScore(hackerGameData.currentScore - 10);
