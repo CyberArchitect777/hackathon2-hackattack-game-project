@@ -21,6 +21,7 @@ body {
     background-image: url("../images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
+    text-align: center;
   }
 
 /* Header information */
@@ -60,15 +61,30 @@ button:hover {
         0 0 40px #FF0099;
 }
 
-#menu-screen button {
+#exit-main:hover {
+    background-color: #f9fd05;
+    color: black;
+}
+
+#main-menu-button:hover {
+    background-color: #f9fd05;
+    color: black;
+}
+
+#how-to-play-button:hover {
+    background-color: #f9fd05;
+    color: black;
+}
+
+#menu-screen button, #play-again-button, #exit-main {
     font-size: 20px;
     border-radius: 25px;
     height: 100px;
-   
 }
 
 #game-screen button {
     font-size: 15px;
+    font-weight: bolder;
     border-radius: 25px;
     width: 120px;
 }
@@ -77,6 +93,12 @@ button:hover {
     color: black;
     background-color: #7bff00f5;
     box-shadow: none;
+    cursor: none;
+   }
+
+#start-game-button, #end-game-button, #main-menu-button{
+    background-color: #f9fd05;
+    color: black;
 }
 
 #instructions-screen button {
@@ -85,10 +107,40 @@ button:hover {
     height: 100px;
 }
 
-#score-screen button {
+ol {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    border-radius: 25px;
-    height: 100px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.list-group-item {
+    color: #ffff;
+    border: none;
+    background: none;
+    margin-top: 30px;
+}
+.list-group {
+    list-style: none;
+    padding-left: 0;
+}
+
+#final-score {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    color: #ffff;
+    font-size: 50px;
+    border: none;
+    background: none;
+    cursor: none;
+    outline: none;
+}
+
+#final-score:hover {
+    color: #ffffff;
+    cursor: none;
+    box-shadow: none;
 }
 
 /* Game screen */
