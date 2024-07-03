@@ -21,6 +21,14 @@ const hackerGameData = {
 
 // Button event listener set up area
 
+// All screens
+
+const logoText = document.querySelector("header a");
+logoText.addEventListener("click", function () {
+    resetGame();
+    displayWindow("menu-screen");
+});
+
 // Main menu buttons
 
 const menuStartGameButton = document.getElementById("menu-start-button");
@@ -44,9 +52,8 @@ const gameEndButton = document.getElementById("end-game-button");
 gameEndButton.addEventListener("click", function () {
     if (hackerGameData.hackerLocation != -1) {
         hackerGameData.exitFlag = true;
-    } else {
-        updateFinalScore();
     }
+    updateFinalScore();
     displayWindow("score-screen");
 });
 
@@ -57,10 +64,18 @@ mainMenuButton.addEventListener("click", function () {
     displayWindow("menu-screen");
 });
 
+// Final score screen buttons
+
 const playAgainButton = document.getElementById("play-again-button");
 playAgainButton.addEventListener("click", function () {
     resetGame();
     displayWindow("game-screen");
+});
+
+const exitMenuButton = document.getElementById("exit-main");
+exitMenuButton.addEventListener("click", function () {
+    resetGame();
+    displayWindow("menu-screen");
 });
 
 function resetGame() {
@@ -199,7 +214,7 @@ const updateTimeLeft = newTime => {
 /**
  * Updates the final score found on the score screen
  */
-const updateFinalScore = finalScore => document.getElementById("final-score").innerText = "Final Score: " + finalScore;
+const updateFinalScore = () => document.getElementById("final-score").innerText = "Final Score: " + hackerGameData.currentScore;
 
 /**
  * 
