@@ -1,4 +1,19 @@
 
+// Minimum global variables implemented in place of using HTML hidden elements to hold values
+
+/**
+ * A global object storing all useful game data for access by all functions
+ */
+const hackerGameData = {
+    hackerLocation: -1,
+    gameRounds: 10,
+    timeInterval: 1,
+    currentScore: 0,
+    highScore: 0
+};
+
+hackerGameData.currentTime = (hackerGameData.gameRounds / hackerGameData.timeInterval);
+
 // Button event listener set up area
 
 // Main menu buttons
@@ -32,6 +47,10 @@ mainMenuButton.addEventListener("click", function () {
     displayWindow("menu-screen");
 });
 
+const playAgainButton = document.getElementById("play-again-button");
+playAgainButton.addEventListener("click", function () {
+    displayWindow("game-screen");
+});
 
 /**
  * Displays the required div frame after being activated by an event or call.
@@ -55,7 +74,7 @@ function createBoard() {
     let gameBoard = document.getElementById("boxes")
     let gameCode = "";
 
-    gameCode += `<div class="hide" id="hacker-pos">-1</div><div class="row">`;
+    gameCode += `<div class="row">`;
 
     for (let x = 0; x < 16; x++) {
         if (x % 4 == 0) {
@@ -83,10 +102,10 @@ function setUpListeners() {
  **/
 function checkAnswer(eventAction) {
     let targetBox = (eventAction.target.id).substring(5);
-    if (targetBox == document.getElementById("hacker-pos").innerText) {
-        changeScore(5)
+    if (targetBox == hackerGameData.hackerLocation) {
+        updateGameScore(hackerGameData.currentScore + 5);
     } else {
-        changeScore(-10);
+        updateGameScore(hackerGameData.currentScore - 10);
     }
 }
 
@@ -108,59 +127,44 @@ function placeHacker(hackerPosition) {
  * The main function that runs the game by calling other functions.
  **/
 function gameStart() {
-    const gameRounds = 60; // Number of iterations the game will go through
-    const timeInterval = 1; // Number of seconds per iteration
-
-    setTimeLeft(gameRounds);
+    
+    updateTimeLeft(hackerGameData.currentTime);
     setUpListeners();
 
-    // Starts the new game thread which runs every timeInterval for gameRounds
+    // Starts the new game thread which runs every hackerGameData.timeInterval for hackerGameData.gameRounds
     const gameRun = setInterval(function () {
 
-        let currentHackerLocation = document.getElementById("hacker-pos");
-
-        if (currentHackerLocation.innerText != -1) {
-            removeHacker(currentHackerLocation.innerText);
+        if (hackerGameData.hackerLocation != -1) {
+            removeHacker(hackerGameData.hackerLocation);
         }
 
         const newHackerLocation = Math.floor(Math.random() * 16);
         placeHacker(newHackerLocation);
-        currentHackerLocation.innerText = newHackerLocation.toString();
-        if (getTimeLeft() == 0) {
+        hackerGameData.hackerLocation = newHackerLocation;
+        if (hackerGameData.currentTime == 0) {
             clearInterval(gameRun);
-            alert("Time is up");
+            displayWindow("score-screen");
         }
-        changeTimeLeft(-timeInterval);
-
-
-    }, (timeInterval * 1000), gameRounds);
+        updateTimeLeft(hackerGameData.currentTime - hackerGameData.timeInterval);
+    }, (hackerGameData.timeInterval * 1000), hackerGameData.gameRounds);
 
 }
 
 /**
- * Gets the score from the display on the HTML code
+ * Updates the score locally and on the HTML page
  **/
-const getScore = () => (document.getElementById("score-display").innerText).substring(6);
+const updateGameScore = newScore => {
+    hackerGameData.currentScore = Number(newScore); 
+    document.getElementById("score-display").innerText = "Score: " + String(newScore);
+}
 
 /**
- * Updates the change on the HTML page using the difference supplied
+ * Updates the time left locally and on the HTML page
  **/
-const changeScore = scoreDifference => document.getElementById("score-display").innerText = "Score: " + (Number(getScore()) + Number(scoreDifference));
-
-/**
- * Gets the time left from the display on the HTML code
- **/
-const getTimeLeft = () => (document.getElementById("time-display").innerText).substring(5);
-
-/**
- * Updates the time on the HTML page using the difference supplied
- **/
-const changeTimeLeft = timeDifference => document.getElementById("time-display").innerText = "Time: " + (Number(getTimeLeft()) + Number(timeDifference));
-
-/**
- * Sets the time left with an absolute value
- **/
-const setTimeLeft = absoluteTimeLeft => document.getElementById("time-display").innerText = "Time: " + absoluteTimeLeft;
+const updateTimeLeft = newTime => {
+    hackerGameData.currentTime = Number(newTime);
+    document.getElementById("time-display").innerText = "Time: " + newTime;
+}
 
 // Creates the game board
 
