@@ -1,4 +1,3 @@
-
 // Minimum global variables implemented in place of using HTML hidden elements to hold values
 
 /**
@@ -6,12 +5,13 @@
  */
 const hackerGameData = {
     hackerLocation: -1,
-    gameRounds: 10,
+    gameRounds: 30,
     timeInterval: 1,
     currentScore: 0,
     highScore: 0,
     exitFlag: false,
-    setUpObject: function() {
+    clickFlag: false,
+    setUpObject: function () {
         this.hackerLocation = -1;
         this.currentScore = 0;
         this.exitFlag = false;
@@ -19,49 +19,67 @@ const hackerGameData = {
     }
 };
 
-// Button event listener set up area
+function setUpButtonEventListeners() {
+    
+    // Button event listener set up area
 
-// Main menu buttons
+    // All screens
 
-const menuStartGameButton = document.getElementById("menu-start-button");
-menuStartGameButton.addEventListener("click", function () {
-    displayWindow("game-screen");
-});
+    const logoText = document.querySelector("header a");
+    logoText.addEventListener("click", function () {
+        resetGame();
+        displayWindow("menu-screen");
+    });
 
-const instructionsButton = document.getElementById("how-to-play-button");
-instructionsButton.addEventListener("click", function () {
-    displayWindow("instructions-screen");
-});
+    // Main menu buttons
 
-// Game screen buttons
+    const menuStartGameButton = document.getElementById("menu-start-button");
+    menuStartGameButton.addEventListener("click", function () {
+        displayWindow("game-screen");
+    });
 
-const gameStartButton = document.getElementById("start-game-button");
-gameStartButton.addEventListener("click", function () {
-    gameStart();
-});
+    const instructionsButton = document.getElementById("how-to-play-button");
+    instructionsButton.addEventListener("click", function () {
+        displayWindow("instructions-screen");
+    });
 
-const gameEndButton = document.getElementById("end-game-button");
-gameEndButton.addEventListener("click", function () {
-    if (hackerGameData.hackerLocation != -1) {
-        hackerGameData.exitFlag = true;
-    } else {
+    // Game screen buttons
+
+    const gameStartButton = document.getElementById("start-game-button");
+    gameStartButton.addEventListener("click", function () {
+        gameStart();
+    });
+
+    const gameEndButton = document.getElementById("end-game-button");
+    gameEndButton.addEventListener("click", function () {
+        if (hackerGameData.hackerLocation != -1) {
+            hackerGameData.exitFlag = true;
+        }
         updateFinalScore();
-    }
-    displayWindow("score-screen");
-});
+        displayWindow("score-screen");
+    });
 
-// Instructions screen buttons
+    // Instructions screen buttons
 
-const mainMenuButton = document.getElementById("main-menu-button");
-mainMenuButton.addEventListener("click", function () {
-    displayWindow("menu-screen");
-});
+    const mainMenuButton = document.getElementById("main-menu-button");
+    mainMenuButton.addEventListener("click", function () {
+        displayWindow("menu-screen");
+    });
 
-const playAgainButton = document.getElementById("play-again-button");
-playAgainButton.addEventListener("click", function () {
-    resetGame();
-    displayWindow("game-screen");
-});
+    // Final score screen buttons
+
+    const playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.addEventListener("click", function () {
+        resetGame();
+        displayWindow("game-screen");
+    });
+
+    const exitMenuButton = document.getElementById("exit-main");
+    exitMenuButton.addEventListener("click", function () {
+        resetGame();
+        displayWindow("menu-screen");
+    });
+}
 
 function resetGame() {
     hackerGameData.setUpObject(); // Reset the hacker data object to starting values
@@ -103,6 +121,8 @@ function createBoard() {
 
     gameCode += "</div>";
     gameBoard.innerHTML += gameCode;
+
+    setUpListeners();
 }
 
 /**
@@ -120,10 +140,22 @@ function setUpListeners() {
  **/
 function checkAnswer(eventAction) {
     let targetBox = (eventAction.target.id).substring(5);
-    if (targetBox == hackerGameData.hackerLocation) {
-        updateGameScore(hackerGameData.currentScore + 5);
-    } else {
-        updateGameScore(hackerGameData.currentScore - 10);
+    if (hackerGameData.clickFlag != true) {
+        if (targetBox == hackerGameData.hackerLocation) {
+            updateGameScore(hackerGameData.currentScore + 5);
+            hackerGameData.clickFlag = true;
+            document.getElementById(eventAction.target.id).style.backgroundColor = "blue";
+            setTimeout(() => {
+                document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
+            },200);        
+        } else {
+            updateGameScore(hackerGameData.currentScore - 10);
+            hackerGameData.clickFlag = true;
+            document.getElementById(eventAction.target.id).style.backgroundColor = "red";
+            setTimeout(() => {
+                document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
+            },200);
+        }
     }
 }
 
@@ -145,12 +177,9 @@ function placeHacker(hackerPosition) {
  * The main function that runs the game by calling other functions.
  **/
 function gameStart() {
-    
-    alert(gameStartButton.disabled);
+
     disableStartButton(true);
-    alert(gameStartButton.disabled);
     updateTimeLeft(hackerGameData.currentTime);
-    setUpListeners();
 
     // Starts the new game thread which runs every hackerGameData.timeInterval for hackerGameData.gameRounds
     const gameRun = setInterval(function () {
@@ -170,6 +199,7 @@ function gameStart() {
             hackerGameData.hackerLocation = newHackerLocation;
             updateTimeLeft(hackerGameData.currentTime - hackerGameData.timeInterval);
         }
+        hackerGameData.clickFlag = false;
     }, (hackerGameData.timeInterval * 1000), hackerGameData.gameRounds);
 
 }
@@ -186,7 +216,7 @@ function setUpInitialGame() {
  * Updates the score locally and on the HTML page
  **/
 const updateGameScore = newScore => {
-    hackerGameData.currentScore = Number(newScore); 
+    hackerGameData.currentScore = Number(newScore);
     document.getElementById("score-display").innerText = "Score: " + String(newScore);
 }
 
@@ -201,7 +231,7 @@ const updateTimeLeft = newTime => {
 /**
  * Updates the final score found on the score screen
  */
-const updateFinalScore = finalScore => document.getElementById("final-score").innerText = "Final Score: " + finalScore;
+const updateFinalScore = () => document.getElementById("final-score").innerText = "Final Score: " + hackerGameData.currentScore;
 
 /**
  * 
@@ -215,7 +245,7 @@ const updateStartingTime = () => {
 /**
  * Enables or disables the start game button on the game screen. True enables it, false disables it.
  */
-const disableStartButton = buttonState => gameStartButton.disabled = buttonState;
+const disableStartButton = buttonState => (document.getElementById("start-game-button")).disabled = buttonState;
 
+setUpButtonEventListeners();
 setUpInitialGame();
-
