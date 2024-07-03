@@ -10,6 +10,7 @@ const hackerGameData = {
     currentScore: 0,
     highScore: 0,
     exitFlag: false,
+    clickFlag: false,
     setUpObject: function () {
         this.hackerLocation = -1;
         this.currentScore = 0;
@@ -139,18 +140,22 @@ function setUpListeners() {
  **/
 function checkAnswer(eventAction) {
     let targetBox = (eventAction.target.id).substring(5);
-    if (targetBox == hackerGameData.hackerLocation) {
-        updateGameScore(hackerGameData.currentScore + 5);
-        document.getElementById(eventAction.target.id).style.backgroundColor = "blue";
-        setTimeout(() => {
-            document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
-        },200);        
-    } else {
-        updateGameScore(hackerGameData.currentScore - 10);
-        document.getElementById(eventAction.target.id).style.backgroundColor = "red";
-        setTimeout(() => {
-            document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
-        },200);
+    if (hackerGameData.clickFlag != true) {
+        if (targetBox == hackerGameData.hackerLocation) {
+            updateGameScore(hackerGameData.currentScore + 5);
+            hackerGameData.clickFlag = true;
+            document.getElementById(eventAction.target.id).style.backgroundColor = "blue";
+            setTimeout(() => {
+                document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
+            },200);        
+        } else {
+            updateGameScore(hackerGameData.currentScore - 10);
+            hackerGameData.clickFlag = true;
+            document.getElementById(eventAction.target.id).style.backgroundColor = "red";
+            setTimeout(() => {
+                document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
+            },200);
+        }
     }
 }
 
@@ -194,6 +199,7 @@ function gameStart() {
             hackerGameData.hackerLocation = newHackerLocation;
             updateTimeLeft(hackerGameData.currentTime - hackerGameData.timeInterval);
         }
+        hackerGameData.clickFlag = false;
     }, (hackerGameData.timeInterval * 1000), hackerGameData.gameRounds);
 
 }
