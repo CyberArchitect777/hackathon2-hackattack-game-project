@@ -10,13 +10,13 @@ const hackerGameData = {
     timeInterval: 1,
     currentScore: 0,
     highScore: 0,
-    exitFlag: false,
+    gameRun: "",
     clickFlag: true,
     setUpObject: function () {
         this.hackerLocation = -1;
         this.currentScore = 0;
-        this.exitFlag = false;
         hackerGameData.currentTime = (hackerGameData.gameRounds / hackerGameData.timeInterval);
+        clickFlag = true;
     }
 };
 
@@ -28,8 +28,10 @@ function setUpButtonEventListeners() {
 
     const logoText = document.querySelector("header a");
     logoText.addEventListener("click", function () {
+        exitLoop();
         resetGame();
         displayWindow("menu-screen");
+        disableStartButton(false);
     });
 
     // Main menu buttons
@@ -53,11 +55,11 @@ function setUpButtonEventListeners() {
 
     const gameEndButton = document.getElementById("end-game-button");
     gameEndButton.addEventListener("click", function () {
-        if (hackerGameData.hackerLocation != -1) {
-            hackerGameData.exitFlag = true;
-        }
+        exitLoop();
+        hackerGameData.clickFlag = true;
         updateFinalScore();
         displayWindow("score-screen");
+        disableStartButton(false);
     });
 
     // Instructions screen buttons
@@ -83,10 +85,28 @@ function setUpButtonEventListeners() {
     });
 }
 
+/**
+ * Exit out of the thread loop to stop the hacker generation
+ */
+function exitLoop() {
+    clearInterval(hackerGameData.gameRun);
+}
+
+/**
+ * Reset the game back to default values
+ */
 function resetGame() {
     hackerGameData.setUpObject(); // Reset the hacker data object to starting values
     updateStartingTime();
     updateGameScore(0);
+    resetBoard();
+}
+/** Reset the entire game board back to desktop images */
+function resetBoard() {
+    for (let x = 0; x < 16; x++) {
+        document.getElementById("image" + x).src = "assets/images/desktop.png";
+        document.getElementById("image" + x).alt = "Gameplay desktop tile image";
+    }
 }
 
 /**
@@ -188,14 +208,14 @@ function gameStart() {
     hackerGameData.clickFlag = true;
 
     // Starts the new game thread which runs every hackerGameData.timeInterval for hackerGameData.gameRounds
-    const gameRun = setInterval(function () {
+    hackerGameData.gameRun = setInterval(function () {
 
         if (hackerGameData.hackerLocation != -1) {
             removeHacker(hackerGameData.hackerLocation);
         }
 
-        if ((hackerGameData.currentTime == 0) || hackerGameData.exitFlag == true) {
-            clearInterval(gameRun);
+        if ((hackerGameData.currentTime == 0)) {
+            clearInterval(hackerGameData.gameRun);
             updateFinalScore(hackerGameData.currentScore);
             disableStartButton(false);
             displayWindow("score-screen");
