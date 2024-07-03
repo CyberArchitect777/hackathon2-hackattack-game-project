@@ -141,8 +141,16 @@ function checkAnswer(eventAction) {
     let targetBox = (eventAction.target.id).substring(5);
     if (targetBox == hackerGameData.hackerLocation) {
         updateGameScore(hackerGameData.currentScore + 5);
+        document.getElementById(eventAction.target.id).style.backgroundColor = "blue";
+        setTimeout(() => {
+            document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
+        },200);        
     } else {
         updateGameScore(hackerGameData.currentScore - 10);
+        document.getElementById(eventAction.target.id).style.backgroundColor = "red";
+        setTimeout(() => {
+            document.getElementById(eventAction.target.id).style.backgroundColor = "transparent";
+        },200);
     }
 }
 
