@@ -50,6 +50,7 @@ function setUpButtonEventListeners() {
 
     const gameStartButton = document.getElementById("start-game-button");
     gameStartButton.addEventListener("click", function () {
+        gameStartButton.innerText = "Started";
         gameStart();
     });
 
@@ -59,6 +60,7 @@ function setUpButtonEventListeners() {
         hackerGameData.clickFlag = true;
         updateFinalScore();
         displayWindow("score-screen");
+        gameStartButton.innerText = "Start Game";
         disableStartButton(false);
     });
 
@@ -75,6 +77,7 @@ function setUpButtonEventListeners() {
     playAgainButton.addEventListener("click", function () {
         resetGame();
         displayWindow("game-screen");
+        gameStartButton.innerText = "Started";
         gameStart();
     });
 
