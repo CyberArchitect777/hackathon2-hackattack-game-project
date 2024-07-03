@@ -69,7 +69,7 @@ body {
     height: 100px;
 }
 
-#end-game-button,
+#end-game-button, #start-game-button,
 #main-menu-button {
     background-color: #f9fd05;
     color: black;
@@ -138,19 +138,6 @@ ol {
     color: black;
     background-color: #7bff00f5;
     box-shadow: none;
-}
-
-#start-game-button {
-    background-color: #f9fd05;
-    color: black;
-    box-shadow:
-        inset 0 0 15px #66ff00,
-        /* inner glow on hover */
-        0 0 5px #eeacd3,
-        /* outer glow on hover */
-        0 0 10px #eeacd3,
-        0 0 15px #FF0099,
-        0 0 20px #FF0099;
 }
 
 /* Score screen */
