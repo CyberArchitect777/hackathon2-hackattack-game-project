@@ -146,9 +146,7 @@ function placeHacker(hackerPosition) {
  **/
 function gameStart() {
     
-    alert(gameStartButton.disabled);
     disableStartButton(true);
-    alert(gameStartButton.disabled);
     updateTimeLeft(hackerGameData.currentTime);
     setUpListeners();
 
