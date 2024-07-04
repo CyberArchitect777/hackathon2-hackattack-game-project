@@ -102,7 +102,19 @@ The space available is greater on a bigger device and the interface is generally
 
 ## Development Considerations
 
+Upon finding out the members of the team, we were directed to choose a team name and a repository owner. We choose HackAttack by using ChatGPT to suggest random hackathon team names to us and then choosing one we liked. The project brief given to us suggested three ideas for a project, a game, a quiz application and finally an API based reporting website. We decided collectively that we liked the idea of making a game and again asked ChatGPT to suggest some ideas to us based on a similiar idea to the project brief. We shortlisted three and eventually choose Whack-a-mole. It was decided early on that this would be a themed project to provide more interest and a hacker-based concept was chosen. At this early stages, the details were not firm and the wireframes were loosely designed. The initial abstract design idea is shown below:-
 
+![Initial menu idea](/assets/images/docs/bm-menu.png "Initial menu idea")
+
+This showed a menu structure similiar to that seen in the finished game, although a settings menu was never implemented due to the time available. A game concept wireframe was also drawn up, although the idea was more about the structure that the actual design and still focused on Whack-a-mole style thinking. The idea was also that space on a mobile device might be very limited and thus utilising a great deal of the screen might be required, a concept that turned out to be less of an issue than anticipated.
+
+![Initial game concept idea](/assets/images/docs/bm-gameconcept.png "Initial game concept idea")
+
+Later on, some more detailed concepts were introduced based on these initial ideas. Ultimately, not all of these thoughts were utilised in the project, most notably those that were feature based and could not be included in the scope. However, these designs closely resembled the product that was built:-
+
+![Detailed ideas on design](/assets/images/docs/sa-full.png "Detailed ideas on design")
+
+Once the time had come to start the hackathon, a project board was set up using GitHub Projects and initially populated with tasks. As the project progressed, these items were moved from "Todo" to "In Progress" and then to "Completed".
 
 ## Testing
 
