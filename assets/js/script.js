@@ -118,7 +118,7 @@ function resetBoard() {
 function displayWindow(windowName) {
     const allSitePages = document.querySelectorAll(".sitepage");
 
-    for (oneSitePage of allSitePages) {
+    for (let oneSitePage of allSitePages) {
         if (oneSitePage.id == windowName) {
             oneSitePage.classList.remove("hide");
             oneSitePage.setAttribute("aria-hidden", "false");
@@ -133,7 +133,7 @@ function displayWindow(windowName) {
  * Creates the HTML code and embeds it in the page to display the initial play board
  **/
 function createBoard() {
-    let gameBoard = document.getElementById("boxes")
+    let gameBoard = document.getElementById("boxes");
     let gameCode = "";
 
     gameCode += `<div class="row">`;
@@ -250,7 +250,7 @@ function setUpInitialGame() {
 const updateGameScore = newScore => {
     hackerGameData.currentScore = Number(newScore);
     document.getElementById("score-display").innerText = "Score: " + String(newScore);
-}
+};
 
 /**
  * Updates the time left locally and on the HTML page
@@ -258,7 +258,7 @@ const updateGameScore = newScore => {
 const updateTimeLeft = newTime => {
     hackerGameData.currentTime = Number(newTime);
     document.getElementById("time-display").innerText = "Time: " + newTime;
-}
+};
 
 /**
  * Updates the final score found on the score screen
@@ -272,7 +272,7 @@ const updateFinalScore = () => document.getElementById("final-score").innerText 
 const updateStartingTime = () => {
     hackerGameData.setUpObject();
     document.getElementById("time-display").innerText = "Time: " + hackerGameData.currentTime;
-}
+};
 
 /**
  * Enables or disables the start game button on the game screen. True enables it, false disables it.
