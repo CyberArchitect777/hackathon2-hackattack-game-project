@@ -6,7 +6,7 @@
  */
 const hackerGameData = {
     hackerLocation: -1,
-    gameRounds: 10,
+    gameRounds: 30,
     timeInterval: 1,
     currentScore: 0,
     highScore: 0,
@@ -121,8 +121,10 @@ function displayWindow(windowName) {
     for (oneSitePage of allSitePages) {
         if (oneSitePage.id == windowName) {
             oneSitePage.classList.remove("hide");
+            oneSitePage.setAttribute("aria-hidden", "false");
         } else {
             oneSitePage.classList.add("hide");
+            oneSitePage.setAttribute("aria-hidden", "true");
         }
     }
 }
