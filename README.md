@@ -44,6 +44,7 @@ This website was created during Hackathon 2 of the "16-Week High-Performance Ful
     * Making sure colour contrast is clearly well-defined throughout the site.
     * Ensuring all images have an appropriate alt text
 
+<a id="instructions"></a>
 ## Instructions and Features
 
 Hacker Whacker is designed to be a fun, themed whack-a-mole style game that is clear to use from the outset and also interactively engage the user. It is simple to use and can be easily navigated through the interface. The whole site is based on a single HTML page split into four main sections, all of which are displayed in the full browser window. Three of these are hidden at all times while one remains visible. The page selected is dependent on user decisions as they navigate the site.
@@ -100,6 +101,7 @@ The following is on a laptop screen of 1024x768:-
 
 The space available is greater on a bigger device and the interface is generally scaled up to support this, but the content is virtually the same and looks very similar on any device.
 
+<a id="development"></a>
 ## Development Considerations
 
 Upon finding out the members of the team, we were directed to choose a team name and a repository owner. We choose HackAttack by using ChatGPT to suggest random hackathon team names to us and then choosing one we liked. The project brief given to us suggested three ideas for a project, a game, a quiz application and finally an API based reporting website. We decided collectively that we liked the idea of making a game and again asked ChatGPT to suggest some ideas to us based on a similar idea to the project brief. We shortlisted three and eventually chose Whack-a-mole. It was decided early on that this would be a themed project to provide more interest and a hacker-based concept was chosen. At this early stage, the details were not firm and the wireframes were loosely designed. The initial abstract design idea is shown below:-
@@ -138,6 +140,7 @@ The team worked cooperatively to take the project from design to final implement
 
 * Barrie Millar - (https://github.com/CyberArchitect777)
 
+<a id="future"></a>
 ## Future Wishlist
 
 There are numerous improvements that could be made to this website given more available time. A selection of these are shown below. 
@@ -148,11 +151,12 @@ There are numerous improvements that could be made to this website given more av
 * A better utilisation of space to create bigger game boards and more boxes. These could also be tailored to the device the game is being used on.
 * Slightly better design by utilising screen space better.
 
+<a id="deployment"></a>
 ## Project Deployment
 
 The deployed website can be found [here](https://cyberarchitect777.github.io/hackathon2-hackattack-game-project/)
 
-
+<a id="technical"></a>
 ## Technical Facts
 
 ### Technologies used:
@@ -171,6 +175,7 @@ The deployed website can be found [here](https://cyberarchitect777.github.io/hac
 * ChatGPT (mainly for code technique advice)
 * Websites Online, like Stack Overflow and Mozilla's JavaScript MDN (for code advice/reference)
 
+<a id="repository"></a>
 ## Repository and Project Board
 
 - GitHub repository - https://github.com/CyberArchitect777/hackathon2-hackattack-game-project
