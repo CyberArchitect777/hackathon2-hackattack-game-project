@@ -162,6 +162,10 @@ ol {
     display: none;
 }
 
+.hackerbox {
+    max-width: 110px;
+}
+
 /* Media queries */
 
 @media only screen and (min-width: 480px) {
@@ -178,10 +182,6 @@ ol {
 
     .h1 {
         font-size: 60px;
-    }
-
-    .hackerbox {
-        max-width: 125px;
     }
 
     ol {
