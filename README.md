@@ -90,12 +90,19 @@ The final score screen appears if the user ends the game manually or runs out of
 
 ### Responsiveness
 
-As documented earlier, the interface is largely similiar if viewed on a very small mobile or very large device apart from the amount of space that is available.
+As documented earlier, the interface is largely similiar if viewed on a very small mobile or very large device apart from the amount of space that is available. The following screenshot shows the interface on the minimum mobile screen accounted for, 320x480 in pixels
 
+![Game view on a small mobile](/assets/images/docs/mobileview.png "Game view on a small mobile")
 
+The following is on a laptop screen of 1024x768:-
 
+![Game view on a laptop](/assets/images/docs/desktopview.png "Game view on a laptop")
+
+The space available is greater on a bigger device and the interface is generally scaled up to support this, but the content is virtually the same and looks very similar on any device.
 
 ## Development Considerations
+
+
 
 ## Testing
 
