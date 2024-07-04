@@ -116,7 +116,17 @@ Later on, some more detailed concepts were introduced based on these initial ide
 
 Once the time had come to start the hackathon, a project board was set up using GitHub Projects and initially populated with tasks. As the project progressed, these items were moved from "Todo" to "In Progress" and then to "Completed".
 
+Attempts were made to ensure the site met accessibility standards were possible, although the very nature of whack-a-mole does place limits on what can be done. All images have alternatve textual information. The code is well commented throughout and all site images are of a reasonable size for display given the way they are used. A semantic HTML structure was used to implement the site.
+
 ## Testing
+
+A wide variety of testing was carried out on the website after it was completed. These include the following:-
+
+- Page responsiveness was tested at mobile, tablet, laptop and desktop sizes
+- All site links work as expected
+- The game logic was tested and seems to be free of bugs. This was extended to include the behaviour of the application beyond just the game and into the site features.
+- All images load as expected.
+- Every HTML and CSS page on the site was checked with the W3C validator. All pages are error free and have no warnings. The JavaScript code was also checked with JSHint and all errors eliminated.
 
 ## Team
 
@@ -130,7 +140,18 @@ The team worked cooperatively to take the project from design to final implement
 
 ## Future Wishlist
 
+There are numerous improvements that could be made to this website given more available time. A selection are shown below. 
+
+* A high score
+* Different game modes, perhaps ethical hackers that cost you points if you click on them for instance
+* Different difficulty levels, including changes in speed. 
+* A better utilisation of space to create bigger game boards and more boxes. These could also be tailored to the device the game is being used on.
+* Slightly better design by utilising screen space better.
+
 ## Project Deployment
+
+The deployed website can be found [here](https://cyberarchitect777.github.io/hackathon2-hackattack-game-project/)
+
 
 ## Technical Facts
 
@@ -147,9 +168,15 @@ The team worked cooperatively to take the project from design to final implement
 * Balsamiq, Canva (for wireframing)
 * Google Documents (for project planning)
 * GitHub Projects (for project management)
-* ChatGPT (for code technique advice)
+* ChatGPT (mainly for code technique advice)
+* Websites Online, like Stack Overflow and Mozilla's JavaScript MDN (for code advice/reference)
 
 ## Repository and Project Board
 
+- GitHub repository - https://github.com/CyberArchitect777/hackathon2-hackattack-game-project
+- GitHub project board - https://github.com/users/CyberArchitect777/projects/7
+- GitHub deployed website - https://cyberarchitect777.github.io/hackathon2-hackattack-game-project/
+
 ## Credits
 
+* Canva for all image resources used in creating the website
