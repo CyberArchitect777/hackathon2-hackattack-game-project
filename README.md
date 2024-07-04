@@ -4,11 +4,22 @@
 
 # Table of Contents
 
+1. [Introduction](#introduction)
+2. [Instructions and Features](#instructions)
+3. [Development Considerations](#development)
+4. [Testing](#testing)
+5. [Team](#team)
+6. [Future Wishlist](#future)
+7. [Project Deployment](#deployment)
+8. [Technical Fact](#technical-facts)
+9. [Repository and Project Board](#repository)
+10. [Credits](#credits)
+
 ## Introduction
 
-Welcome to Hacker Whacker, a themed whack-a-mole style game about stopping hackers from penetrating your security. The aim is to click quickly on appearing hackers to make them disappear and earn points for doing so. Missed hackers or incorrect decisions can lead to a loss of points. The user will receive a final score at the end of the game showing how well they did.
+Welcome to Hacker Whacker, a themed whack-a-mole style game about stopping hackers from penetrating your security. The aim is to click quickly on appearing hackers to make them disappear and earn points for doing so. Making incorrect decisions will lead to a loss of points. The user will receive a final score at the end of the game showing how well they did.
 
-This website was created during Hackathon 2 of the "16-Week High-Performance Full Stack Skills Bootcamp" which ranged from 02/07/2024 to 04/07/2024 (1.30pm). Planning and preparation for the Hackathon was conducted over the four days surrounding the weekend before (28-06-2024 to 01-07-2024). There was no clear specification to follow, but the following requirements were given.
+This website was created during Hackathon 2 of the "16-Week High-Performance Full Stack Skills Bootcamp" which ranged from 02/07/2024 to 04/07/2024 (1.30pm). Planning and preparation for the Hackathon was conducted over the four days surrounding the weekend before (28-06-2024 to 01-07-2024). The following requirements were given as to what was required by the end.
 
 * The main goal is the creation of an interactive front-end web application using HTML, CSS and JavaScript
 * The site should meet the purpose it was designed for.
@@ -34,6 +45,8 @@ This website was created during Hackathon 2 of the "16-Week High-Performance Ful
     * Ensuring all images have an apropriate alt text
 
 ## Instructions and Features
+
+
 
 ## Development Considerations
 
